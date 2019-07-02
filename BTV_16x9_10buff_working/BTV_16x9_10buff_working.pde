@@ -1,5 +1,6 @@
 import processing.video.*;
-
+//Let's add some stuf that I don't really care about losing
+//comments
 Capture cam;
 PImage[] buffer;
 PImage[] buffer2;
