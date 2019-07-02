@@ -6,23 +6,25 @@ PImage[] buffer;
 PImage cropcam;
 
 int h = 120;
-int nFrames = 300;
-
+int nFrames = 30;
+int buffdiv = 10;
 
 int iWrite = 0;
-int iRead = 299; 
-int iRead2 = 270;
-int iRead3 = 240;
-int iRead4 = 210;
-int iRead5 = 180;
-int iRead6 = 150;
-int iRead7 = 120;
-int iRead8 = 90;
-int iRead9 = 60;
-int iRead10 = 30;
+
+int iRead = 9 * (int(nFrames / buffdiv)); 
+int iRead2 = 8 * (int(nFrames / buffdiv)); 
+int iRead3 = 7 * (int(nFrames / buffdiv));
+int iRead4 = 6 * (int(nFrames / buffdiv));
+int iRead5 = 5 * (int(nFrames / buffdiv));
+int iRead6 = 4 * (int(nFrames / buffdiv));
+int iRead7 = 3 * (int(nFrames / buffdiv));
+int iRead8 = 2 * (int(nFrames / buffdiv));
+int iRead9 = int(nFrames / buffdiv);
+int iRead10 = 1;
 
 void setup(){
-  size(1920, 1080);
+  size(1280, 720);
+  frameRate(30);
   //fullScreen();
   String[] cameras = Capture.list();
   printArray(cameras);
@@ -33,7 +35,7 @@ void setup(){
  
 }
 void draw() {
-
+  println(frameRate);
   if(cam.available()) {
     cam.read();
     cropcam = cam.get(160,50,h,h);
