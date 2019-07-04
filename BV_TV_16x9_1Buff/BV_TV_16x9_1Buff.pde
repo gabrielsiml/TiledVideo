@@ -1,5 +1,5 @@
 import processing.video.*;
-
+// why isn't this file appearing in github desktop? Only changes appear?
 Capture cam;
 PImage[] buffer;
 
